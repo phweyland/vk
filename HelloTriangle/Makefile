@@ -1,5 +1,7 @@
 VULKAN_SDK_PATH = /home/philippe/git/VulkanSDK/x86_64
-CFLAGS = -std=c++17 -I$(VULKAN_SDK_PATH)/include
+STB_INCLUDE_PATH = /home/philippe/git/vk
+
+CFLAGS = -std=c++17 -I$(VULKAN_SDK_PATH)/include -I$(STB_INCLUDE_PATH)
 LDFLAGS = -L$(VULKAN_SDK_PATH)/lib `pkg-config --static --libs glfw3` -lvulkan
 VulkanTest: main.cpp
 	g++ $(CFLAGS) -o VulkanTest main.cpp $(LDFLAGS)
@@ -11,4 +13,3 @@ test:	VulkanTest
 
 clean:
 	rm -f VulkanTest
-
